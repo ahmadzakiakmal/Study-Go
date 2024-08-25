@@ -2,7 +2,10 @@ package handler
 
 import (
 	"fmt"
+	"html/template"
+	"log"
 	"net/http"
+	"path"
 	"strconv"
 )
 
@@ -10,8 +13,21 @@ func RootRouteHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
-}
-	w.Write([]byte("Hello world! I'm learning Golang Backend!"))
+	}
+
+	tmpl, err := template.ParseFiles(path.Join("views", "index.html"))
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+	// w.Write([]byte("Hello world! I'm learning Golang Backend!"))
+	executeErr := tmpl.Execute(w, nil)
+	if executeErr != nil {
+		log.Println(err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
 }
 
 func ProductHandler(w http.ResponseWriter, r *http.Request) {
