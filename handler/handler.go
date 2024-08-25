@@ -21,8 +21,13 @@ func RootRouteHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
-	// w.Write([]byte("Hello world! I'm learning Golang Backend!"))
-	executeErr := tmpl.Execute(w, nil)
+
+	data := map[string]interface{} {
+		"title": "Study Golang Web",
+		"content": "I'm learning web development using Golang",
+	} 
+	
+	executeErr := tmpl.Execute(w, data)
 	if executeErr != nil {
 		log.Println(err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
