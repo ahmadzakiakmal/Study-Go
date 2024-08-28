@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -39,10 +38,26 @@ func ProductHandler(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Query().Get("id")
 	idNum, err := strconv.Atoi(id) 
 
+	data := map[string]interface{} {
+		"id": id,
+	} 
+
 	if err != nil || idNum < 0 {
 		http.NotFound(w, r)
 		return
 	}
 
-	fmt.Fprintf(w, "Product id: %d", idNum)
+	tmpl, err := template.ParseFiles(path.Join("views", "product.html"))
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+
+	executeErr := tmpl.Execute(w, data)
+	if executeErr != nil {
+		log.Println(err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
 }
