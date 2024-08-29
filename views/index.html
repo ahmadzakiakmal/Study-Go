@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .title }}</title>
-</head>
-<body>
-  <main style="display: flex; min-height: 100vh; justify-content: center; align-items: center;">
-    <h1 style="font-family: sans-serif;">{{ .content }}</h1>
-  </main>
-</body>
-</html>
+{{ template "layout" . }}
+
+{{ define "main" }}
+<div style="padding: 50px; display: flex; justify-content: center;">
+  {{ .content }}
+</div>
+{{ end }}
