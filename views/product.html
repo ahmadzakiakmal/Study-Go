@@ -2,6 +2,15 @@
 
 {{ define "main" }}
 <div style="padding: 50px; display: flex; justify-content: center;">
-  Product {{ .id }}
+  Id: {{ .Id }}
+</div>
+<div style="padding: 50px; display: flex; justify-content: center;">
+  Name: {{ .Name }}
+</div>
+<div style="padding: 50px; display: flex; justify-content: center;">
+  Price: {{ .Price }}
+</div>
+<div style="padding: 50px; display: flex; justify-content: center;">
+  {{ .Stock }} left in stock
 </div>
 {{ end }}
