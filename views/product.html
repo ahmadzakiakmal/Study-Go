@@ -10,7 +10,9 @@
 <div style="padding: 50px; display: flex; justify-content: center;">
   Price: {{ .Price }}
 </div>
-<div style="padding: 50px; display: flex; justify-content: center;">
-  {{ .Stock }} left in stock
+<div style="padding: 50px; display: flex; justify-content: center; text-align: center;">
+  {{ .Stock }} left in stock&nbsp;
+  <br />
+  {{ .StockStatus }}
 </div>
 {{ end }}
