@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header, footer {
+  background-color: aquamarine; text-align: center; padding: 40px;
+}
+
+main {
+  flex: 100%;
+}
+
+.product-data {
+  text-align: center;
+  padding: 20px 0;
+}

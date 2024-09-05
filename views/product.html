@@ -1,16 +1,8 @@
-{{ template "layout" . }}
-
-{{ define "main" }}
-<div style="padding: 50px; display: flex; justify-content: center;">
-  Id: {{ .Id }}
-</div>
-<div style="padding: 50px; display: flex; justify-content: center;">
-  Name: {{ .Name }}
-</div>
-<div style="padding: 50px; display: flex; justify-content: center;">
-  Price: {{ .Price }}
-</div>
-<div style="padding: 50px; display: flex; justify-content: center; text-align: center;">
+{{ template "layout" . }} {{ define "main" }}
+<div class="product-data">Id: {{ .Id }}</div>
+<div class="product-data">Name: {{ .Name }}</div>
+<div class="product-data">Price: ${{ .Price }}</div>
+<div class="product-data">
   {{ .Stock }} left in stock&nbsp;
   <br />
   {{ .StockStatus }}
