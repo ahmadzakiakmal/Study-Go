@@ -22,3 +22,8 @@ main {
   text-align: center;
   padding: 20px 0;
 }
+
+.zoro {
+  width: 100%;
+  /* max-width: 100vw; */
+}
